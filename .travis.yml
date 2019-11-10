@@ -11,7 +11,7 @@ addons:
       - google-chrome-stable
       
 jdk: openjdk11
-sudo: false
+sudo: required
 cache:
     directories:
         ./angular/node_modules
@@ -21,9 +21,9 @@ before_install:
     - java -version
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
-    - npm install
+    - cd ./angular npm install
 script:
-    - cd ./backend && ./mvnw -q clean install #package
+    - cd ../backend && ./mvnw -q clean install #package
     - ./mvnw spring-boot:run # java -jar target/*.jar
     - cd ../angular && npm run build
     - npm run e2e
