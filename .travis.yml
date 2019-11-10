@@ -14,20 +14,22 @@ jobs:
       jdk: openjdk11
       install: true
       script: 
-        - mvn clean package #install
-        - java -jar target/*.jar
+        - mvn clean package # instead of just "install", create a jar
+        - java -jar target/*.jar # run jar
       cache:
         directories:
             - $HOME/.m2
+    # note that the jar will now keep running forever unless told otherwise
+            
     # proveed with angular (in subfolder)
-    #- language: node_js
-    #  node_js: stable
-    #  before_install: - cd ./angular/
-    #  install: 
-    #    - npm install
-    #  script:
-        #- npm run build
-    #    - npm start # refers to "start": "ng serve &" in package.json
+    - language: node_js
+      node_js: stable
+      before_install: - cd ./angular/
+      install: 
+        - npm install
+      script:
+        - npm run build
+        # - npm start # refers to "start": "ng serve &" in package.json
     #    - protractor protractor.conf.js        
     #  before_script:
     #    - export DISPLAY=:99.0
