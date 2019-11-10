@@ -33,7 +33,7 @@ class TravisCiDemoApplicationTests {
 
 	@Test
 	public void getHome() throws Exception {
-		mockMvc.perform(get("/").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(get("/greeting").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType("application/json"))
 				.andExpect(jsonPath("$.greeting",equalTo("Hello, world!")));

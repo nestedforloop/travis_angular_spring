@@ -1,4 +1,4 @@
-package com.example.traviscidemo;
+package com.example.traviscidemo.model;
 
 public class Greeting {
 
