@@ -12,6 +12,8 @@ jobs:
     # original yaml was just these 7 lines
     - language: java
       jdk: openjdk11
+      before_install: 
+        - cd ./backend/      
       install: true
       script: 
         - mvn clean package # make a jar
