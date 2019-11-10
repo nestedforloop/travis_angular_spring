@@ -6,11 +6,9 @@ addons:
     packages:
       - google-chrome-stable
 
-# specify jobs
-jobs:
+matrix:
   include:
-    - stage: backend
-      language: java
+    - language: java
       jdk: openjdk11
       before_install: 
         - cd ./backend/      
@@ -21,8 +19,7 @@ jobs:
       cache:
         directories:
             - $HOME/.m2            
-    - stage: angular
-      language: node_js
+    - language: node_js
       node_js: stable
       services:
         - xvfb
