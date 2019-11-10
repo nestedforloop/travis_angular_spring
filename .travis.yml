@@ -23,15 +23,18 @@ jobs:
             - $HOME/.m2            
     - language: node_js
       node_js: stable
+      services:
+        - xvfb
       before_install: 
         - cd ./angular/
       install: 
         - npm install
       script:
-        - npm run build
+        # - npm run build
         # - npm start # refers to "start": "ng serve &" in package.json
         # - protractor protractor.conf.js        
+        - npm run test
         - npm run e2e # test this first
       before_script:
         - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
+        #- sh -e /etc/init.d/xvfb start # xvfb moved up to "services"
