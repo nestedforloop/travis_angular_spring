@@ -9,15 +9,16 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+      - openjdk-11-jdk
       
-jdk: oraclejdk11 # openjdk11
+jdk: openjdk11
 sudo: required
 cache:
     directories:
         ./angular/node_modules
 
 before_install:
-    - jdk_switcher use oraclejdk11 # openjdk11
+    #- jdk_switcher use oraclejdk11 # openjdk11
     - java -version
     - chmod +x ./backend/mvnw
     - export DISPLAY=:99.0
