@@ -17,7 +17,7 @@ cache:
         ./angular/node_modules
 
 before_install:
-    #- jdk_switcher use openjdk11
+    - jdk_switcher use openjdk11
     - java -version
     - chmod +x ./backend/mvnw
     - export DISPLAY=:99.0
