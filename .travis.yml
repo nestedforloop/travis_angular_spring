@@ -14,18 +14,15 @@ jobs:
       jdk: openjdk11
       install: true
       script: 
-        - mvn clean package # instead of just "install", create a jar
+        - mvn clean package # make a jar
         - java -jar target/*.jar # run jar
       cache:
         directories:
-            - $HOME/.m2
-            
-    # note that the jar will now keep running forever unless told otherwise
-            
-    # proceed with angular (in subfolder)
+            - $HOME/.m2            
     - language: node_js
       node_js: stable
-      before_install: - cd ./angular/
+      before_install: 
+        - cd ./angular/
       install: 
         - npm install
       script:
@@ -35,4 +32,3 @@ jobs:
     #  before_script:
     #    - export DISPLAY=:99.0
     #    - sh -e /etc/init.d/xvfb start
-      
