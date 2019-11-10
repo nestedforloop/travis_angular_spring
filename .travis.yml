@@ -27,7 +27,7 @@ script:
     - cd ../backend/
     #- chmod a+x ./mvnw # moved up to before_install
     - ./mvnw -q clean install #package
-    - ./mvnw spring-boot:run # java -jar target/*.jar
+    - ./mvnw spring-boot:run & # java -jar target/*.jar
     - cd ../angular && npm run build
     - npm run e2e
 
