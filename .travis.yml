@@ -19,9 +19,10 @@ jobs:
       cache:
         directories:
             - $HOME/.m2
+            
     # note that the jar will now keep running forever unless told otherwise
             
-    # proveed with angular (in subfolder)
+    # proceed with angular (in subfolder)
     - language: node_js
       node_js: stable
       before_install: - cd ./angular/
