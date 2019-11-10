@@ -19,11 +19,13 @@ cache:
 before_install:
     #- jdk_switcher use openjdk11
     - java -version
+    - chmod +x mvnw
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - cd ./angular npm install
 script:
-    - cd ./backend/.mvn && chmod +x mvnw
+    - cd ./backend/
+    #- chmod a+x ./mvnw # moved up to before_install
     - ./mvnw -q clean install #package
     - ./mvnw spring-boot:run # java -jar target/*.jar
     - cd ../angular && npm run build
