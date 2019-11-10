@@ -11,7 +11,7 @@ addons:
       - google-chrome-stable
       
 jdk: openjdk11
-
+sudo: false
 cache:
     directories:
         ./angular/node_modules
