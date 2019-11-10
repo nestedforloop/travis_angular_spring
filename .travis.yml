@@ -9,8 +9,8 @@ addons:
 # specify jobs
 jobs:
   include:
-    # original yaml was just these 7 lines
-    - language: java
+    - stage: backend
+      language: java
       jdk: openjdk11
       before_install: 
         - cd ./backend/      
@@ -21,7 +21,8 @@ jobs:
       cache:
         directories:
             - $HOME/.m2            
-    - language: node_js
+    - stage: angular
+      language: node_js
       node_js: stable
       services:
         - xvfb
@@ -35,6 +36,9 @@ jobs:
         # - protractor protractor.conf.js        
         # - npm run test # 
         - npm run e2e #
-      before_script:
-        - export DISPLAY=:99.0
+      #before_script:
+        #- export DISPLAY=:99.0 # apparently not needed
         #- sh -e /etc/init.d/xvfb start # xvfb moved up to "services"
+      cache:
+        directories:
+            - ./node_modules
